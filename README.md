@@ -1,6 +1,6 @@
 # Kıvılcım · Zihin Oyunları
 
-Kıvılcım, yetişkinler için hafıza, dikkat, işlem yeteneği, strateji, sözel ve uzamsal düşünme alanlarında 46 kısa oyun içeren Türkçe bir web uygulamasıdır.
+Kıvılcım, yetişkinler için hafıza, dikkat, işlem yeteneği, strateji, sözel, uzamsal ve dinleme alanlarında 50 kısa oyun içeren Türkçe bir web uygulamasıdır.
 
 **Oyna:** https://ysfdurak.github.io/kivilcim-zihin-oyunlari/
 
@@ -14,6 +14,7 @@ Tek bir oyun seçebilir, üç oyunluk günlük seansı oynayabilir veya favorile
 - **Strateji** · Çıkış Planı, Kavşak Kontrolü, rota bulmacaları, Şifre Kırıcı, Işıkları Söndür ve Sayı Yerleştir (sudoku).
 - **Sözel** · Kelime Avı, Hangisi Farklı? ve Anlam Eşi.
 - **Uzamsal** · Zihinde Döndür ve Ayna Ustası.
+- **Dinleme** · Ses Hafızası, Tiz mi Pes mi?, Ritim Ustası ve Kaç Ses? Sesle oynanır; sesler tarayıcıda üretilir, çevrimdışı da çalışır. Telefon sessizdeyse ses gelmeyebilir; oyun penceresindeki **Sesi dene** düğmesiyle kontrol edilir. Günün karışımına sesli oyun konmaz.
 
 İşlem alanına Tahmin Ustası ve Kasa Başı eklendi. Süre baskısı olmayan oyunlar **☾ Sakin** filtresinde toplanır.
 
@@ -61,5 +62,6 @@ HTTPS üzerinden ilk açılışta çevrimdışı dosyalar hazırlanır. Destekle
 - `new-games.js` Sözel, Uzamsal ve yeni İşlem oyunlarını içerir.
 - `more-games.js` Sıra Avı, Şifre Kırıcı, Işıkları Söndür ve Sayı Yerleştir oyunlarını içerir.
 - `difficulty.js` üst düzey zorluk eğrilerini içerir.
+- `listen-games.js` Dinleme kategorisini ve ses motorunu içerir.
 - `platform.js` klavye kısayollarını, cihaza göre metinleri ve adres parametrelerini yönetir.
 - `pwa.js`, `sw.js` ve `manifest.webmanifest` ana ekrana ekleme ve çevrimdışı açılışı yönetir.
