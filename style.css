@@ -139,3 +139,37 @@ button,a,.cell,.kvTile,.kvSlot{touch-action:manipulation;-webkit-tap-highlight-c
 .updateBanner span{flex:1;white-space:nowrap}
 .updateBanner button{white-space:nowrap}
 @media (max-width:760px){.updateBanner{width:calc(100vw - 24px);box-sizing:border-box}}
+
+/* ===== Zor oyunlar ===== */
+#playView .hiddenSample{display:grid;place-items:center;width:50px;height:50px;font-size:26px;color:#f0c96b}
+#playView .rule.ruleCombined{color:#f0c96b}
+#playView .schulteTop{display:flex;justify-content:space-between;width:min(100%,380px);margin:0 auto 8px;font-size:13px;color:#a9c0cc}
+#playView .schulteTop b{color:#8de4d3;font-size:16px}
+#playView .schulteGrid{width:min(100%,380px);gap:5px!important}
+#playView .schulteGrid .cell{font:700 clamp(14px,4.4vw,20px) system-ui;color:#e8f2f4}
+#playView .schulteGrid .cell.hit{opacity:.35}
+#playView .lightsGrid{width:min(100%,340px);gap:6px!important}
+#playView .lightsGrid .cell.lit{background:radial-gradient(circle at 40% 35%,#fff3c4,#f0c96b 55%,#c4952f);border-color:#ffe6a3;box-shadow:0 0 18px #f0c96b55}
+#playView .codeBoard{display:flex;flex-direction:column;gap:6px;align-items:center;width:100%}
+#playView .codeRow{display:flex;align-items:center;gap:7px;padding:4px 8px;border-radius:10px;background:#ffffff08}
+#playView .codeRow.current{background:#ffffff12;border:1px dashed #8fa8be55;margin-top:4px}
+#playView .peg{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--peg);color:#0d1c2acc;font-size:13px;box-shadow:inset 0 -2px 0 #0003}
+#playView .pegSlot{width:34px;height:34px;padding:0;border-radius:50%;background:transparent;border:0;display:grid;place-items:center}
+#playView .pegSlot.empty{border:1.5px dashed #8fa8be77}
+#playView .codeFb{min-width:64px;margin-left:6px;color:#f3e6c9;letter-spacing:1px;font-size:13px}
+#playView .codeLegend{font-size:11px;color:#9fb6c2;margin-top:4px}
+#playView .answerRow .codePalette{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;width:100%}
+#playView .answerRow .pegBtn{flex:0 0 auto;min-width:0;width:48px;padding:0;display:grid;place-items:center}
+#playView .sudokuGrid{display:grid;width:min(100%,390px);margin:auto;border:2px solid #c7d9a6;border-radius:6px;overflow:hidden;background:#0b1724}
+#playView .sudokuGrid .sdk{aspect-ratio:1;min-width:0;padding:0;border:0;border-right:1px solid #8fa8be33;border-bottom:1px solid #8fa8be33;background:transparent;color:#8de4d3;font:600 clamp(15px,4.6vw,22px) system-ui;border-radius:0}
+#playView .sudokuGrid.n9 .sdk{font-size:clamp(14px,4vw,20px)}
+#playView .sudokuGrid .sdk.given{color:#f1f6f7;font-weight:700}
+#playView .sudokuGrid .sdk.bR{border-right:2px solid #c7d9a6}
+#playView .sudokuGrid .sdk.bB{border-bottom:2px solid #c7d9a6}
+#playView .sudokuGrid .sdk.same{background:#ffffff0d}
+#playView .sudokuGrid .sdk.sel{background:#2a4a59;box-shadow:inset 0 0 0 2px #f0c96b}
+#playView .sudokuGrid .sdk.wrong{color:#f0ad9e;background:#a4575a33}
+#playView .answerRow .sudokuPad{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;width:min(100%,390px);margin:auto}
+#playView .answerRow .sudokuPad.n4{grid-template-columns:repeat(6,1fr)}
+#playView .answerRow .sudokuPad.n9{grid-template-columns:repeat(6,1fr)}
+#playView .sudokuPad .answer{min-width:0;font-size:18px;min-height:44px;padding:0}
