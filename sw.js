@@ -1,7 +1,7 @@
 // Resolve assets against the installation scope, including GitHub Pages project paths.
 const scope = new URL(self.registration.scope);
 const cachePrefix = `kivilcim:${scope.pathname}:`;
-const cacheName = `${cachePrefix}v1`;
+const cacheName = `${cachePrefix}v2`;
 const shell = scope.href;
 const index = new URL('index.html', scope).href;
 const shellUrls = new Set([shell, index]);
@@ -9,7 +9,7 @@ const core = [
   './', 'index.html', 'style.css', 'catalog.js', 'app.js', 'games.js',
   'workshop.js', 'deep.js', 'expansion.js', 'action.js', 'balance.js',
   'visuals.js', 'routes.js', 'arcade-plus.js', 'mobile.js', 'parking-data.js',
-  'revamp.js', 'memory-plus.js', 'pwa.js', 'manifest.webmanifest',
+  'revamp.js', 'memory-plus.js', 'content.js', 'new-games.js', 'platform.js', 'pwa.js', 'manifest.webmanifest',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png',
   'icons/apple-touch-icon.png',
 ].map(path => new URL(path, scope).href);

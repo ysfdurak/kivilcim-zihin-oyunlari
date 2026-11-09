@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Kıvılcım — Zihin Oyunları",
   "short_name": "Kıvılcım",
-  "description": "Hafıza, dikkat, işlem yeteneği ve strateji için kolaydan uzmana 35 oyun.",
+  "description": "Hafıza, dikkat, işlem, strateji, sözel ve uzamsal düşünme için kolaydan uzmana 42 oyun.",
   "lang": "tr",
   "start_url": "./",
   "scope": "./",
@@ -35,6 +35,31 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "orientation": "any",
+  "shortcuts": [
+    {
+      "name": "Günün karışımı",
+      "short_name": "Günlük",
+      "url": "./?gunluk=1",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Oyun kütüphanesi",
+      "short_name": "Oyunlar",
+      "url": "./?sayfa=oyunlar",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }
