@@ -30,3 +30,92 @@ html{overscroll-behavior-x:none}body{overflow-x:hidden}button,input,select{font-
 .levelAnnouncement{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:35;width:min(480px,calc(100% - 28px));padding:15px 18px;border-radius:14px;background:linear-gradient(120deg,#d1ebce,#9dc8bd);border:1px solid #e3ffe6;color:#183e40;box-shadow:0 12px 35px #06172077;pointer-events:none;opacity:0}.levelAnnouncement b{display:block;font-size:17px;letter-spacing:.5px}.levelAnnouncement span{display:block;font-size:12px;line-height:1.55;margin-top:5px}@keyframes levelMessage{0%{opacity:0;translate:0 -14px}9%,82%{opacity:1;translate:0 0}100%{opacity:0;translate:0 -10px}}#playView:has(.resultPanel) .levelAnnouncement{display:none}.brakeControl{flex:.8!important;background:linear-gradient(#795744,#514334)!important;color:#ffdfac!important}.brakeControl small{display:block;font-size:11px;margin-top:4px}.trafficControls{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%;max-width:420px;margin:9px auto}.trafficControls .actionButton{min-height:49px;font-size:12px}.pedestrianControl{grid-column:1/-1;min-height:47px;background:#8db7a4;color:#173e41;border:1px solid #c9e4ba;border-radius:10px;font-size:13px}.memoryOrderList{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%}.memoryOrderCard{background:linear-gradient(140deg,#35465a,#26364a);border:1px solid #8eabc13b;border-radius:14px;padding:15px 13px;text-align:center}.memoryPerson{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--person);color:#244350;font-size:22px;font-weight:650;margin:auto;box-shadow:inset 0 3px #fff3,0 3px 7px #0003}.memoryOrderCard h3{font-size:15px;color:#e0e5dd;margin:8px 0}.memoryOrderCard p{font-size:13px;color:#c5d9d7;line-height:1.9;margin:0}.memoryPhaseNote{font-size:12px;line-height:1.6;color:#a9c5cb;text-align:center;padding:12px 0 0}.memoryCustomer{display:flex;align-items:center;gap:12px;width:100%;padding:14px;background:#263f50;border-radius:12px}.memoryCustomer>span{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#b7c9b5;color:#23414c;font-size:22px}.memoryCustomer>b{font-size:19px;color:#d4e5de}.memoryCustomer small{margin-left:auto;max-width:120px;font-size:11px;color:#9ab8c3;text-align:right}.bagChoices{width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:15px}.bagChoices button{min-height:66px;background:linear-gradient(#2c4b5c,#213c4e);border:1px solid #6a9da744;border-radius:10px;color:#d4e5df;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}.bagChoices button.selected{background:linear-gradient(#739f8d,#527e79);border-color:#b5d7ae}.bagChoices b{font-size:12px}.bagChoices span{font-size:20px;font-weight:700}.memoryBagSummary{font-size:12px;color:#aec8cd;text-align:center;margin-top:13px}.memoryFocus{font-size:45px;color:#d8e4dc;padding:38px 0}.memoryUpdate{font-size:21px;color:#e2d2a9;line-height:1.7;padding:30px 20px;text-align:center;background:linear-gradient(120deg,#344959,#29394f);border:1px solid #8f9f8e44;border-radius:15px;margin:15px 0}.memoryScene{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.memoryRoom{border:1px solid #97b8b337;border-radius:13px;background:linear-gradient(#344b59,#293f4e);padding:11px 6px;text-align:center;box-shadow:inset 0 1px #fff1}.roomLabel{font-size:10px;color:#adc8cd;text-transform:uppercase;letter-spacing:1px}.roomTable{position:relative;display:flex;align-items:center;justify-content:center;height:93px;margin-top:8px}.roomTable:after{content:'';position:absolute;left:10%;right:10%;bottom:5px;height:10px;background:#8d7660;transform:skewX(-16deg);box-shadow:0 4px 0 #524e48}.roomPerson{width:30px;height:34px;display:grid;place-items:center;border-radius:50% 50% 20% 20%;background:#bfad92;color:#3b4f52;font-size:15px;z-index:1}.roomTable svg{width:65px;height:65px;z-index:1}.memoryRoom>b{display:block;color:#d8e2db;font-size:14px;margin:8px 0 4px}.memoryRoom>small{color:#b3c8c8;font-size:11px}.sceneRecall{width:100%;padding:32px 20px;text-align:center;border-radius:16px;background:radial-gradient(ellipse,#3d4f65,#283a50);border:1px solid #94acb637;display:flex;flex-direction:column;gap:20px}.sceneRecall span{font-size:10px;color:#b7a8c9;letter-spacing:2px}.sceneRecall b{font-size:25px;color:#d3d7e4}.sceneRecall small{color:#94b1bd}.safariGoal{width:100%;min-height:80px;background:#254854;border:1px solid #91b7a737;border-radius:13px;padding:8px 13px;display:flex;gap:15px;align-items:center;margin-bottom:11px}.safariGoal>span{font-size:10px;letter-spacing:1px;color:#a9c3bf;max-width:80px}.safariGoal>div{display:flex;align-items:center;flex:1;gap:9px}.safariGoal svg{width:80px;height:58px;flex-shrink:0}.safariGoal b{font-size:12px;color:#d2e2d9;line-height:1.5}.safariWorld{width:100%;border-radius:17px;overflow:hidden;border:1px solid #b3cdb23a;box-shadow:0 8px 25px #0003}.safariWorld svg{display:block;width:100%;max-height:44svh}.safariBird{cursor:crosshair}.safariBird:focus{outline:none}.safariBird:focus>circle{stroke:#ffe8a2;stroke-width:3}.birdWing{transform-origin:0px -2px;animation:birdFlutter 1.8s ease-in-out infinite}.safariBird:nth-child(even) .birdWing{animation-delay:-.8s}@keyframes birdFlutter{50%{transform:scaleY(.65) rotate(-8deg)}}.safariNote{font-size:12px;text-align:center;color:#b4d1ce;margin:12px 0 0}#playView[data-game=junction] .actionScene{max-height:37svh}#playView[data-game=scenememory] .arena{max-width:720px}#playView[data-game=parking] .sub{max-width:570px;margin-left:auto;margin-right:auto}
 @media(max-width:600px){.levelAnnouncement{top:69px;padding:12px 14px}.levelAnnouncement b{font-size:15px}.levelAnnouncement span{font-size:11px}.trafficControls{gap:7px;margin-top:7px}.trafficControls .actionButton{min-height:47px;font-size:11px}.pedestrianControl{min-height:45px;font-size:12px}#playView[data-game=junction] .actionScene{max-height:29svh}#playView[data-game=junction] .sub{font-size:11px}.brakeControl small{font-size:10px}.memoryOrderList{gap:9px}.memoryOrderCard{padding:12px 9px}.memoryOrderCard h3{font-size:14px}.memoryOrderCard p{font-size:12px}.memoryCustomer{padding:10px;gap:9px}.memoryCustomer small{font-size:10px;max-width:115px}.memoryCustomer>b{font-size:17px}.bagChoices{gap:7px;margin-top:12px}.bagChoices button{min-height:61px}.bagChoices b{font-size:10px}.bagChoices span{font-size:19px}.memoryUpdate{font-size:18px;line-height:1.7;padding:24px 16px}.memoryScene{gap:7px;grid-template-columns:repeat(2,1fr)}.memoryRoom{padding:9px 6px}.roomTable{height:65px;margin-top:4px}.roomTable svg{width:52px;height:52px}.roomPerson{width:26px;height:29px;font-size:13px}.roomLabel{font-size:9px}.memoryRoom>b{font-size:12px;margin:6px 0 3px}.memoryRoom>small{font-size:10px}.sceneRecall{padding:27px 15px}.sceneRecall b{font-size:21px}.safariGoal{min-height:72px;gap:9px;padding:7px 9px}.safariGoal>span{font-size:9px;max-width:60px}.safariGoal>div{flex-direction:column;gap:0}.safariGoal svg{width:65px;height:43px}.safariGoal b{font-size:10px}.safariWorld svg{max-height:34svh}.safariNote{font-size:11px;margin-top:9px}}
 @media(prefers-reduced-motion:reduce){.birdWing{animation:none}.levelAnnouncement{animation-duration:3.2s!important}@keyframes levelMessage{0%,90%{opacity:1}100%{opacity:0}}}
+
+/* ===== İyileştirmeler: okunabilir kontrast (WCAG AA, en az 4.5:1) ===== */
+footer,footer button{color:#5f6754}
+.eyebrow{color:#646a55}
+.heroDesc,.pageDesc{color:#56634b}
+#breadcrumb{color:#5d6356}
+.sectionHeader span{color:#5d6356}
+.chip{color:#4f5945}
+.cardBody p{color:#566150}
+.cardBottom span{color:#536048}
+.cardBottom button,.favorite{color:#4d5c3e}
+.gameCard .category{filter:brightness(.62) saturate(1.2)}
+.sidebar nav button{color:#4f564a}
+.iconButton{color:#555e4c}
+.installButton{color:#4f6339}
+.secondary{color:#4f5d42}
+.reviewNote span,.reviewNote button{color:#4f6339}
+.day{color:#5d6356}
+.day b{color:#5d6356}
+.day.future b{opacity:.55}
+.difficultyNote{color:#4d5f3b!important}
+.levelPathLegend{font-size:11px!important;line-height:1.6!important;color:#55604a!important}
+.modePicker button span,.modePicker button strong{color:#4b5745}
+.modeInfo{color:#4b5d50}
+#modalContent>p,#modalContent .setting{color:#55604b}
+.localNotice{color:#5d6356}
+
+/* ===== Sade açılış penceresi ===== */
+.howTo{margin:10px 0 6px;padding-left:20px;color:#3f4a37;font-size:14px;line-height:1.55}
+.howTo li{margin:4px 0}
+.fullRules{margin:4px 0 10px;font-size:12.5px;color:#55604b}
+.fullRules summary{cursor:pointer;color:#4f6339;font-weight:600;padding:4px 0}
+.fullRules p{margin:6px 0 0;line-height:1.55}
+.levelPickTitle{margin-top:14px;font-size:12px;font-weight:600;color:#4b5745;letter-spacing:.3px}
+.starPath button{display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 0!important;color:#4f5d42!important;font-size:12px!important}
+.starPath button b{font-weight:600}
+.starPath button small{font-size:8px;letter-spacing:-.5px;color:#b58a2e}
+.starPath button.passed{color:#3d5a2a!important}
+.actions .practiceButton{flex-basis:100%}
+.practiceBadge{display:inline-block;margin:0 auto 8px;padding:5px 12px;border-radius:999px;background:#f0c96b22;border:1px solid #f0c96b66;color:#f3d995;font-size:11px;letter-spacing:.8px}
+.starRow{font-size:28px;letter-spacing:4px;color:#f0c96b;margin:6px 0 2px;display:flex;flex-direction:column;align-items:center}
+.starRow small{font-size:11px;letter-spacing:1px;color:#a9c0cc}
+.recordBadge{display:inline-block;margin:6px auto;padding:4px 12px;border-radius:999px;background:#f0c96b;color:#3a2c08;font-weight:700;font-size:12px}
+.cardStars{color:#7a5a12!important;font-weight:600}
+
+/* ===== Ana sayfa ===== */
+.streakLine{margin-top:14px;font-size:13px;color:#56634b}
+.streakLine b{color:#b4532c}
+.homeMore{margin:28px 0 10px;text-align:center}
+.homeMore p{font-size:12px;color:#5d6356;margin-top:10px}
+
+/* ===== Yeni oyunlar (koyu oyun ekranı) ===== */
+#playView .kvSlots,#playView .kvTiles{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:8px 0}
+#playView .kvSlot,#playView .kvTile{width:40px;height:46px;border-radius:9px;font:700 20px system-ui;display:grid;place-items:center;padding:0}
+#playView .kvSlot{background:#0b1724;border:1.5px dashed #6d96ae66;color:#f3e6c9}
+#playView .kvSlot.filled{border-style:solid;border-color:#8de4d3aa;background:#173244}
+#playView .kvSlot.locked{background:#26465a;color:#bfe9de}
+#playView .kvTile{background:#213848;border:1px solid #63899866;color:#e8f2f4}
+#playView .kvTile:disabled{opacity:.18}
+#playView .kvHint{color:#a9c0cc;font-size:13px}
+#playView .kvBig{font-size:34px;letter-spacing:2px;color:#f1f6f7}
+#playView .kvTask{display:inline-block;margin-bottom:12px;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1.5px}
+#playView .kvTask.syn{background:#8de4d322;color:#8de4d3;border:1px solid #8de4d366}
+#playView .kvTask.ant{background:#f0ad9e22;color:#f0ad9e;border:1px solid #f0ad9e66}
+#playView .answerRow .kvWord{flex:1 1 40%;font-weight:600;letter-spacing:.5px}
+#playView .kvReceipt{width:min(100%,320px);background:#f6f1e3;color:#2d2a22;border-radius:10px;padding:12px 14px;font:13px/1.4 ui-monospace,Menlo,monospace;box-shadow:0 8px 24px #0005}
+#playView .kvReceipt div{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed #cfc6ad}
+#playView .kvReceipt .kvPaid{border:0;border-top:2px solid #2d2a22;margin-top:4px;font-weight:700}
+#playView .kvReceipt .kvDiscount{color:#9a3d22}
+#playView .kvEntry{margin-top:12px;font:700 28px system-ui;color:#f3e6c9;min-height:36px}
+#playView .answerRow .kvPad{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;width:min(100%,330px);margin:auto}
+#playView .kvPad .kvKey{min-width:0;font-size:20px;min-height:46px}
+#playView .kvPad .kvOk{grid-column:1/-1;background:#3b7a68;border-color:#8de4d388;color:#fff;font-weight:700}
+#playView .answerRow>.kvOk{background:#3b7a68;border-color:#8de4d388;color:#fff;font-weight:700}
+#playView .kvTarget{background:#ffffff0a;border-radius:14px;padding:6px}
+#playView .kvShape rect{fill:#9fc0ea}
+#playView .kvTarget .kvShape rect{fill:#f0c96b}
+#playView .answerRow .kvShapeBtn{flex:1 1 40%;padding:6px;min-height:0}
+#playView .kvShapeBtn .kvShape{width:84px;height:84px}
+#playView .kvMirror{width:min(100%,360px);gap:4px!important}
+#playView .kvMirror .cell.srcSide{background:#14283a}
+#playView .kvMirror .cell.srcSide.lit{background:linear-gradient(145deg,#f0c96b,#c99a3a);border-color:#ffe3a3}
+#playView .kvMirror.axis-v .cell.axisEdge{box-shadow:4px 0 0 -1px #f0c96b}
+#playView .kvMirror.axis-h .cell.axisEdge{box-shadow:0 4px 0 -1px #f0c96b}
+#playView .kvShapeBtn .kvShape{margin:auto;width:84px!important;height:84px!important}
+.fullRules p{color:#4f5a46}
+.starPath button small{color:#8a6416}
+.sideTop,.mixCard p{color:#5d6356}
+.starPath button,.starPath button.current{color:#3f4b34!important}
