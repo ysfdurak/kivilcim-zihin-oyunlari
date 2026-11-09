@@ -173,3 +173,28 @@ button,a,.cell,.kvTile,.kvSlot{touch-action:manipulation;-webkit-tap-highlight-c
 #playView .answerRow .sudokuPad.n4{grid-template-columns:repeat(6,1fr)}
 #playView .answerRow .sudokuPad.n9{grid-template-columns:repeat(6,1fr)}
 #playView .sudokuPad .answer{min-width:0;font-size:18px;min-height:44px;padding:0}
+
+/* ===== Dinleme ===== */
+#playView .listenBoard{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+#playView .listenBoard p{margin:0;color:#a9c0cc;font-size:13px}
+#playView .listenWave{display:flex;align-items:center;gap:6px;height:60px}
+#playView .listenWave i{width:8px;height:14px;border-radius:4px;background:#f0a6c866}
+#playView .listenWave.on i{animation:wave .7s ease-in-out infinite;background:#f0a6c8}
+#playView .listenWave.on i:nth-child(2){animation-delay:.1s}#playView .listenWave.on i:nth-child(3){animation-delay:.2s}#playView .listenWave.on i:nth-child(4){animation-delay:.3s}#playView .listenWave.on i:nth-child(5){animation-delay:.4s}
+@keyframes wave{50%{height:52px}}
+@media (prefers-reduced-motion:reduce){#playView .listenWave.on i{animation:none;height:36px}}
+#playView .answerRow .padTone{flex:1 1 28%;min-height:64px;font-weight:700;background:hsl(var(--hue) 35% 26%);border-color:hsl(var(--hue) 50% 55% / .5)}
+#playView .answerRow .padTone.lit{background:hsl(var(--hue) 70% 62%);color:#14202c;box-shadow:0 0 22px hsl(var(--hue) 80% 60% / .6)}
+#playView .pitchPair{display:flex;gap:18px}
+#playView .pitchPair span{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;border:2px solid #f0a6c866;font:700 22px system-ui;color:#f0a6c8;transition:transform .12s,background .12s}
+#playView .pitchPair span.on{background:#f0a6c8;color:#3d2a3c;transform:scale(1.12)}
+#playView .replayBtn,#playView .refTones button{background:#ffffff10;border:1px solid #8fa8be44;color:#d4e7ec;border-radius:999px;padding:7px 14px;font-size:12px}
+#playView .replayBtn:disabled{opacity:.4}
+#playView .refTones{display:flex;gap:8px}
+#playView .beatRow{display:flex;gap:10px;min-height:22px}
+#playView .beatRow i{width:16px;height:16px;border-radius:50%;background:#ffffff1c;border:1px solid #f0a6c855}
+#playView .beatRow i.on{background:#f0a6c8;box-shadow:0 0 12px #f0a6c899}
+#playView .answerRow .tapBig{flex:1 1 100%;min-height:120px;font:800 26px system-ui;letter-spacing:3px;background:radial-gradient(circle,#8a4a72,#4a2a43);border-color:#f0a6c888;user-select:none;-webkit-user-select:none}
+#playView .answerRow .tapBig:active{transform:scale(.98);background:#b05c90}
+.soundCheck{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0;padding:10px 12px;border-radius:10px;background:#f6e9f0;color:#6a2f50;font-size:12.5px}
+.soundCheck button{flex:0 0 auto}
