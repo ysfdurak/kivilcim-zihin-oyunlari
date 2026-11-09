@@ -1,17 +1,26 @@
 # Kıvılcım · Zihin Oyunları
 
-Kıvılcım, yetişkinler için hafıza, dikkat, işlem yeteneği, strateji, sözel ve uzamsal düşünme alanlarında 42 kısa oyun içeren Türkçe bir web uygulamasıdır. Tek bir oyun seçebilir, üç oyunluk günlük seansı oynayabilir veya favorilerinle kendi seansını oluşturabilirsin.
+Kıvılcım, yetişkinler için hafıza, dikkat, işlem yeteneği, strateji, sözel ve uzamsal düşünme alanlarında 46 kısa oyun içeren Türkçe bir web uygulamasıdır.
+
+**Oyna:** https://ysfdurak.github.io/kivilcim-zihin-oyunlari/
+
+Telefon ve bilgisayar için **ayrı bir bağlantı gerekmez**: aynı adres iki cihazda da açılır, ekran boyutuna ve dokunmatik/klavye kullanımına göre kendini ayarlar. Telefonda ana ekrana, bilgisayarda uygulama olarak kurulabilir; yeni sürümler aynı adresten otomatik gelir.
+
+Tek bir oyun seçebilir, üç oyunluk günlük seansı oynayabilir veya favorilerinle kendi seansını oluşturabilirsin.
 
 - **Hafıza** · Sipariş Hafızası, Mekân Hafızası ve antika hatırlama.
-- **Dikkat** · Foto Safari, Dikkat Pisti ve çift radar görevleri.
+- **Dikkat** · Foto Safari, Dikkat Pisti, çift radar görevleri ve Sıra Avı.
 - **İşlem yeteneği** · düşen işlemler, Eksik İşlem ve sayı hedefleri.
-- **Strateji** · Çıkış Planı, Kavşak Kontrolü ve rota bulmacaları.
+- **Strateji** · Çıkış Planı, Kavşak Kontrolü, rota bulmacaları, Şifre Kırıcı, Işıkları Söndür ve Sayı Yerleştir (sudoku).
 - **Sözel** · Kelime Avı, Hangisi Farklı? ve Anlam Eşi.
 - **Uzamsal** · Zihinde Döndür ve Ayna Ustası.
 
 İşlem alanına Tahmin Ustası ve Kasa Başı eklendi. Süre baskısı olmayan oyunlar **☾ Sakin** filtresinde toplanır.
 
 ## Düzeyler ve yıldızlar
+
+Üst düzeylerde kolay kalan oyunların zorluğu artırıldı: İşaret Avı’nda tek özellik farkı ve gizlenen örnek, Kural Değişti’de “VE / YA DA” ile birleşik kurallar, Eksik İşlem’de dört sayılı ifadeler, Ne Değişti?’de 6×6 alan ve 4 değişiklik, Seramik Vardiyası’nda 16 saniyeye inen sipariş süresi, Renk Çatışması’nda “kelimeye bak” görev değişimi.
+
 
 Her oyunda 10 düzey vardır. Kısa turda %85 ve üzeri başarı bir sonraki düzeyi açar, %55’in altı bir düzey geri götürür. Akış modunda düzey, art arda iki iyi seriyle (en az %90 isabet) kendiliğinden yükselir. Her düzey için ★ %60, ★★ %85, ★★★ %95 başarıyla kazanılır. Her oyun kaydedilmeyen kısa bir **deneme turuyla** denenebilir.
 
@@ -50,5 +59,7 @@ HTTPS üzerinden ilk açılışta çevrimdışı dosyalar hazırlanır. Destekle
 - `catalog.js` ile oyun modülleri oyun kataloğunu ve kurallarını içerir. Sonraki dosyalar önceki fonksiyonları sarmalayarak genişletir; yükleme sırası `index.html` içindeki sıradır.
 - `content.js` oyuncuya görünen metinlerin tek kaynağıdır: oyun açıklamaları, “nasıl oynanır” adımları, düzey özetleri, yıldızlar, deneme turu ve ana sayfa. Bir oyunun metnini değiştirmek için önce buraya bak.
 - `new-games.js` Sözel, Uzamsal ve yeni İşlem oyunlarını içerir.
+- `more-games.js` Sıra Avı, Şifre Kırıcı, Işıkları Söndür ve Sayı Yerleştir oyunlarını içerir.
+- `difficulty.js` üst düzey zorluk eğrilerini içerir.
 - `platform.js` klavye kısayollarını, cihaza göre metinleri ve adres parametrelerini yönetir.
 - `pwa.js`, `sw.js` ve `manifest.webmanifest` ana ekrana ekleme ve çevrimdışı açılışı yönetir.
