@@ -39,6 +39,22 @@ Tarayıcıda `http://localhost:8000` adresini aç.
 
 Depo ayarlarında **Pages → Build and deployment** bölümünde **Deploy from a branch** kaynağını, `main` dalını ve `/ (root)` klasörünü seç. Uygulama dosyaları kök dizindedir. PWA dosya yolları hem alan adı kökünde hem de depo alt yolunda çalışır.
 
+## Durum
+
+**Sürüm 1.0 · tamamlandı (Kasım 2026).** 7 kategoride 50 oyun, 10 düzey ve yıldız sistemi, deneme turu, telefon ve tarayıcı desteği, çevrimdışı kullanım. Proje bu kapsamla kapatıldı; yeni oyun eklenmesi planlanmıyor.
+
+## Sonraki adım (kendi sunucuya geçişte)
+
+İlerleme şu an yalnız kullanılan tarayıcıda saklanır. Uygulama kendi sunucuya (VPS) taşındığında ele alınacaklar:
+
+- Kullanıcı hesabı ve giriş
+- İlerlemenin telefon ile bilgisayar arasında eşitlenmesi
+- İsteğe bağlı sıralama tablosu
+- Mevcut yerel kayıtların hesaba aktarılması (Ayarlar → İlerlemeyi yedekle dosyası kullanılabilir)
+- Kod yapısının sadeleştirilmesi: dosyalar şu an birbirini sarmalayan katmanlar hâlindedir
+
+Bu özellikler sürekli çalışan bir sunucu ve veritabanı gerektirir; GitHub Pages yalnız statik dosya sunduğu için bu sürümde yer almaz.
+
 ## Tarayıcı ve telefon
 
 Kıvılcım aynı adresten hem bilgisayar tarayıcısında hem telefonda çalışır; ekran genişliğine göre düzen değişir.
