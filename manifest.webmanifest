@@ -1,0 +1,40 @@
+{
+  "id": "./",
+  "name": "Kıvılcım — Zihin Oyunları",
+  "short_name": "Kıvılcım",
+  "description": "Hafıza, dikkat, işlem yeteneği ve strateji için kolaydan uzmana 35 oyun.",
+  "lang": "tr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone"
+  ],
+  "background_color": "#f8f6f1",
+  "theme_color": "#f8f6f1",
+  "prefer_related_applications": false,
+  "categories": [
+    "games",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+/* Touch-first controls and evidence-based mastery. Two good batches are required. */
+function smallScreen(){return typeof window.innerWidth==='number'&&window.innerWidth<=600}
+const wideMemory=memoryProfile;
+memoryProfile=function(n,extra=0){const p=wideMemory(n,extra);if(smallScreen())p.size=Math.min(6,p.size);return p};
+function playSeconds(a=active){if(!a)return 0;return a.game.kind==='arcade'?(a.elapsed||0):Math.max(0,(performance.now()-a.start)/1000)}
+function masteryState(a=active){if(!a)return;const s=playSeconds(a);if(a.masteryStart==null){a.masteryStart=s;a.masteryBlocks=0;a.masteryBase=flowMetrics(a)}return{seconds:Math.max(0,s-a.masteryStart),required:30+Math.floor((a.level-1)/3)*5,blocks:a.masteryBlocks||0}}
+const mobileMetrics=flowMetrics;
+flowMetrics=function(a){if(a.game.plusGame)return{good:a.plusGood||0,bad:a.plusBad||0};return mobileMetrics(a)};
+flowThreshold=function(id){const n=active?.level||1;return({racer:8,ringdodge:5,junction:15,stacktiming:7,trains:8,fallmath:8,radar:14,vitrine:6,ceramics:5,lightlab:3}[id]||3)+Math.floor((n-1)/4)};
+const masteryPromote=promoteFlow;
+promoteFlow=function(){const a=active,s=masteryState(a);if(!s||s.blocks<2||s.seconds<s.required)return false;masteryPromote();a.masteryStart=playSeconds(a);a.masteryBlocks=0;a.masteryBase=flowMetrics(a);a.stageBase=flowMetrics(a);a.pendingLevel=false;flowHUD();return true};
+function gradeMastery(a,m){const threshold=flowThreshold(a.game.id),base=a.masteryBase||m,count=m.good-base.good+m.bad-base.bad;if(count<threshold)return;const ratio=(m.good-base.good)/count;if(ratio>=.9)a.masteryBlocks=Math.min(2,(a.masteryBlocks||0)+1);else a.masteryBlocks=0;a.masteryBase={...m};a.stageBase={...m}}
+checkFlow=function(){const a=active;if(!a?.flow||a.paused||a.completed||a.recorded||a.game.kind==='round')return;masteryState(a);const m=flowMetrics(a);a.lastMetric??={good:0,bad:0};const changed=m.good!==a.lastMetric.good||m.bad!==a.lastMetric.bad;if(m.bad>a.lastMetric.bad)a.tempo=Math.max(.75,(a.tempo||1)-.12);else if(m.good>a.lastMetric.good)a.tempo=Math.min(1,(a.tempo||1)+.025);a.lastMetric={...m};gradeMastery(a,m);if(a.pendingLevel){if(!a.trains.length)promoteFlow()}else if(changed){const s=masteryState(a);if(s.blocks>=2&&s.seconds>=s.required){if(a.game.id==='trains'&&a.trains.length)a.pendingLevel=true;else promoteFlow()}}flowHUD()};
+const touchRoundFinish=balancedFinishRound;
+finishRound=function(ok,explain=''){const a=active;if(!a?.flow||a.game.kind!=='round')return touchRoundFinish(ok,explain);if(!a.awaiting||a.paused||a.recorded)return;masteryState(a);a.awaiting=false;cancelTimers();a.attempts++;a.correct+=ok?1:0;a.answers.push(ok);a.stageRound++;a.streak=ok?(a.streak||0)+1:0;if(!ok)a.flowLives--;gradeMastery(a,flowMetrics(a));const promoted=promoteFlow();$('feedback').textContent=(ok?'✓ Doğru. ':'Bir can gitti. ')+explain+(promoted?' Yeni düzey açıldı.':'');$('feedback').className='feedback'+(ok?'':' bad');document.querySelectorAll('#board button,#answers button').forEach(b=>b.disabled=true);flowHUD();later(()=>{a.round++;if(a.flowLives<=0)endGame();else nextRound()},ok?900:1500)};
+flowHUD=function(){const a=active;if(!a?.flow)return;const s=masteryState(a),m=flowMetrics(a),base=a.masteryBase||m,threshold=flowThreshold(a.game.id),progress=m.good-base.good+m.bad-base.bad;const status=a.pendingLevel?'Trenler varışta · yeni harita hazırlanıyor':s.blocks>=2?(s.seconds<s.required?'İki seri tamam · aynı düzeyde pekiştir':'Yeni bir başarılı kararda düzey açılır'):`Pekiştirme ${s.blocks}/2 seri · karar ${Math.min(progress,threshold)}/${threshold}`;const html=`<span class="flowLevel">DÜZEY <b>${a.level}</b><small>${a.level===10?'UZMAN AKIŞI':'OTOMATİK'}</small></span><span class="flowStatus">${status}<i><em style="width:${Math.min(100,(s.blocks/2*.7+Math.min(1,s.seconds/s.required)*.3)*100)}%"></em></i></span><span class="flowTempo">${a.game.kind==='round'?'♥'.repeat(Math.max(0,a.flowLives??3)):(a.tempo||1)<.95?'RAHAT TEMPO':Math.floor(s.seconds)+' sn'}</span>`;if(a.ribbonText!==html){a.ribbonText=html;$('flowRibbon').innerHTML=html}$('playLevelLabel').textContent=CATS[a.game.cat].name.toLocaleUpperCase('tr')+' · DÜZEY '+a.level;$('gameProgress').style.width=Math.min(100,(s.blocks/2)*100)+'%'};
+// Refresh every game through the same frame while preserving saved preferences.
+const touchFrame=playFrame;
+playFrame=function(){touchFrame();$('playView').classList.add('touchStage')};
+const mobileUi=ui;
+ui=function(...args){mobileUi(...args);if(typeof requestAnimationFrame==='function')requestAnimationFrame(()=>{if(active&&!active.recorded)fitTouchStage()})};
+function fitTouchStage(){const host=$('playView');if(!host||!active)return;const vh=typeof window.innerHeight==='number'?window.innerHeight:844;host.style.setProperty?.('--stage-vh',vh+'px')}
+window.addEventListener('resize',fitTouchStage);
+const mobileSummary=difficultySummary;
+difficultySummary=function(id,n){let text=mobileSummary(id,n);if(FLOW_IDS.includes(id))text+=' · Akışta iki başarılı seri ve en az '+(30+Math.floor((n-1)/3)*5)+' sn aktif oyun';return text};
+const mobileOpen=openGame;
+openGame=function(...args){mobileOpen(...args);const p=$('modalContent').querySelector('.levelPathLegend');if(p&&FLOW_IDS.includes(args[0]))p.textContent='Başlangıç düzeyini seç. Akışta her düzey iki başarılı seriyle pekişir; art arda birkaç dokunuşla atlanmaz.'};
+const mobilePause=pausePlay;
+pausePlay=function(){mobilePause();if(active?.game.kind==='arcade')$('modalContent').querySelector('p').textContent='Oyun tamamen durdu. Süre ve animasyonlar kaldığın yerden devam eder.'};
+// Give the straight road genuine bends, moving traffic and a choice of scenery.
+const baseCoast=renderCoast;
+renderCoast=function(a){a.elapsedScenery=Math.floor((a.elapsed||0)/35)%3;baseCoast(a)};
+function showReview(){modal(`<div class="eyebrow">TELEFONDA DAHA RAHAT OYUN</div><h2>Daha büyük kontroller.<br>Daha uzun bir yol.</h2><p>Düğmeler büyütüldü. Oyun sahnesi ve kontroller telefon ekranı için yeniden yerleştirildi. Uzun haritalarda alt eylemler kaydırma sırasında ulaşılır kalır.</p><p>Akışta bir düzey için iki başarılı seri ve 30–45 saniyelik aktif oyun gerekir. 10. düzey oyunu bitirmez; uzman akışı devam eder.</p><p>Üç yeni oyun: <b>Gece Vitrini</b>, <b>Seramik Vardiyası</b> ve <b>Işık Laboratuvarı</b>.</p><div class="actions"><button class="primary" onclick="closeModal()">Oyunlara dön</button></div>`)}
+
+function coastColor(t,palette){const f=(t%105)/35,i=Math.floor(f),mix=Math.min(1,(f-i)*4);const a=palette[i%3],b=palette[(i+1)%3],read=(s,k)=>parseInt(s.slice(1+k*2,3+k*2),16);return 'rgb('+[0,1,2].map(k=>Math.round(read(a,k)+(read(b,k)-read(a,k))*mix)).join(',')+')'}
+const touchResume=resumePlay;resumePlay=function(){touchResume();$('playView').classList.remove('paused')};
+const cssPause=pausePlay;pausePlay=function(){cssPause();if(active?.paused)$('playView').classList.add('paused')};
+
+for(const id of ['grid','sequence','pathmemory'])GAMES.find(g=>g.id===id).instruction=GAMES.find(g=>g.id===id).instruction.replace('Akış modunda üç art arda doğruyla düzey yükselir;', 'Akış modunda iki başarılı seri ve 30–45 saniye aktif oyunla düzey yükselir;');
+
+// Tracking objects get non-overlapping touch targets on small screens.
+const mobileOrbitStart=startOrbitRound;
+startOrbitRound=function(){mobileOrbitStart();if(smallScreen()){const a=active,count=Math.min(12,a.balls.length),targets=Math.min(5,2+Math.floor(a.level/2));a.balls=a.balls.slice(0,count);a.orbitTargets=unique(targets,count);separateOrbit(a);$('sub').textContent=count+' nesne · '+targets+' hedef · '+(a.orbitRound+1)+' / 3 tur';drawOrbit()}};
+function separateOrbit(a){if(!smallScreen())return;for(let pass=0;pass<4;pass++){for(let i=0;i<a.balls.length;i++)for(let j=i+1;j<a.balls.length;j++){const x=a.balls[i],y=a.balls[j],dx=y.x-x.x,dy=y.y-x.y,d=Math.hypot(dx,dy);if(d>=65)continue;const nx=d?dx/d:1,ny=d?dy/d:0,shift=(65-d)/2;x.x-=nx*shift;x.y-=ny*shift;y.x+=nx*shift;y.y+=ny*shift;const v=(y.vx-x.vx)*nx+(y.vy-x.vy)*ny;if(v<0){x.vx+=v*nx;x.vy+=v*ny;y.vx-=v*nx;y.vy-=v*ny}}for(const b of a.balls){b.x=Math.max(33,Math.min(427,b.x));b.y=Math.max(33,Math.min(297,b.y))}}}
+const mobileOrbitMotion=tickOrbit;
+tickOrbit=function(dt){mobileOrbitMotion(dt);if(active?.game.id==='orbit'&&smallScreen()&&active.orbitPhase==='track'){separateOrbit(active);drawOrbit()}};
+const desktopOrbitDraw=drawOrbit;
+drawOrbit=function(){const a=active;if(!smallScreen())return desktopOrbitDraw();$('gameCounter').textContent=(a.orbitRound+1)+' / 3';$('liveStats').innerHTML=`<span>TUR<b>${a.orbitRound+1}/3</b></span><span>HEDEF<b>${a.orbitTargets.length}</b></span><span>${a.orbitPhase==='study'?'Hedefleri tanı':a.orbitPhase==='track'?'Takip et':'Hedefleri seç'}</span>`;$('orbitField').innerHTML='<defs><radialGradient id="orbitalWorld"><stop stop-color="#294c60"/><stop offset="1" stop-color="#10283b"/></radialGradient></defs><rect width="460" height="330" rx="14" fill="url(#orbitalWorld)"/>'+a.balls.map((b,i)=>`<g ${a.orbitPhase==='pick'?`role="button" tabindex="0" aria-label="Nesne ${i+1}" onclick="orbitPick(${i})" onkeydown="if(event.key==='Enter')orbitPick(${i})"`:''}><circle cx="${b.x}" cy="${b.y}" r="32" fill="transparent"/><circle cx="${b.x}" cy="${b.y}" r="21" fill="${a.orbitSelected.includes(i)?'#c4a8dc':a.orbitPhase==='study'&&a.orbitTargets.includes(i)?'#ebbc7d':'#80aeb8'}" stroke="#e0eee055" stroke-width="2"/><ellipse cx="${b.x-5}" cy="${b.y-7}" rx="8" ry="4" fill="#fff3"/>${a.orbitPhase==='pick'?`<text x="${b.x}" y="${b.y+5}" text-anchor="middle" font-size="14" font-weight="700" fill="#173e50">${i+1}</text>`:''}</g>`).join('')};
+const touchDifficulty=difficultySummary;
+difficultySummary=function(id,n){if(smallScreen()&&id==='orbit')return Math.min(12,6+n)+' hareketli nesne · '+Math.min(5,2+Math.floor(n/2))+' hedef · büyük dokunma alanları';if(smallScreen()&&id==='pathmemory')return Math.min(6,3+Math.floor((n-1)/2))+'×'+Math.min(6,3+Math.floor((n-1)/2))+' harita · '+(3+Math.floor(n*.8))+' durak · iki seriyle pekiştirme';return touchDifficulty(id,n)};
