@@ -29,6 +29,15 @@ Tarayıcıda `http://localhost:8000` adresini aç.
 
 Depo ayarlarında **Pages → Build and deployment** bölümünde **Deploy from a branch** kaynağını, `main` dalını ve `/ (root)` klasörünü seç. Uygulama dosyaları kök dizindedir. PWA dosya yolları hem alan adı kökünde hem de depo alt yolunda çalışır.
 
+## Tarayıcı ve telefon
+
+Kıvılcım aynı adresten hem bilgisayar tarayıcısında hem telefonda çalışır; ekran genişliğine göre düzen değişir.
+
+- **Telefon:** dokunmatik kontroller, alt gezinme çubuğu, ana ekrana ekleme (Android: Chrome → ⋮ → Uygulamayı yükle · iPhone: Safari → Paylaş → Ana Ekrana Ekle).
+- **Bilgisayar:** fare ve klavye. Seçenekli oyunlarda 1–9 tuşları, Kelime Avı'nda harfleri yazma, Kasa Başı'nda rakam + Enter, her oyunda Esc ile ara verme. Chrome/Edge adres çubuğundaki yükle simgesiyle masaüstü uygulaması olarak da kurulabilir.
+- **Bağlantılar:** `?oyun=anagram` bir oyunu doğrudan açar, `?gunluk=1` günün karışımını başlatır, `?sayfa=oyunlar` kütüphaneyi açar.
+- Yeni sürüm yayınlandığında kurulu uygulamada “Yeni sürüm hazır · Şimdi güncelle” bildirimi çıkar.
+
 ## Telefon ve oyun kayıtları
 
 HTTPS üzerinden ilk açılışta çevrimdışı dosyalar hazırlanır. Destekleyen tarayıcılarda **Telefona yükle** menüsünden Kıvılcım’ı ana ekrana ekleyebilirsin.
@@ -41,4 +50,5 @@ HTTPS üzerinden ilk açılışta çevrimdışı dosyalar hazırlanır. Destekle
 - `catalog.js` ile oyun modülleri oyun kataloğunu ve kurallarını içerir. Sonraki dosyalar önceki fonksiyonları sarmalayarak genişletir; yükleme sırası `index.html` içindeki sıradır.
 - `content.js` oyuncuya görünen metinlerin tek kaynağıdır: oyun açıklamaları, “nasıl oynanır” adımları, düzey özetleri, yıldızlar, deneme turu ve ana sayfa. Bir oyunun metnini değiştirmek için önce buraya bak.
 - `new-games.js` Sözel, Uzamsal ve yeni İşlem oyunlarını içerir.
+- `platform.js` klavye kısayollarını, cihaza göre metinleri ve adres parametrelerini yönetir.
 - `pwa.js`, `sw.js` ve `manifest.webmanifest` ana ekrana ekleme ve çevrimdışı açılışı yönetir.
