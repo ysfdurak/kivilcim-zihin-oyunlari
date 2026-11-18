@@ -1,4 +1,4 @@
-const CATS={all:{name:'Tümü',color:'#ec784d'},memory:{name:'Hafıza',color:'#8e7ac7'},attention:{name:'Dikkat',color:'#4b9e8c'},speed:{name:'Hız',color:'#d39e39'},flex:{name:'Esneklik',color:'#628fc4'},logic:{name:'Mantık',color:'#ce7e9b'},plan:{name:'Planlama',color:'#637b49'}};
+const CATS={all:{name:'Tümü',color:'#ec784d'},memory:{name:'Hafıza',color:'#7a63bd'},attention:{name:'Dikkat',color:'#3b7d6f'},speed:{name:'Hız',color:'#d39e39'},flex:{name:'Esneklik',color:'#628fc4'},logic:{name:'Mantık',color:'#ce7e9b'},plan:{name:'Planlama',color:'#637b49'}};
 const GAMES=[
 {id:'grid',name:'İz Hafızası',cat:'memory',desc:'Işıkları hatırla, izlerini yeniden bul.',kind:'round',rounds:5,instruction:'Yanan karelerin yerlerini hatırla. Işıklar söndüğünde aynı karelere dokun. Her turda tek seçimin var; seçtiğin kareyi yeniden dokunarak kaldıramazsın.'},
 {id:'sequence',name:'Renk Rotası',cat:'memory',desc:'Bir ritmi izle. Sırayı sen tamamla.',kind:'round',rounds:5,instruction:'Renkler sırayla yanacak. Gösteri bitince aynı sırayla renklere dokun. Sonraki turlarda dizi uzar.'},
@@ -51,7 +51,7 @@ GAMES.push(
 {id:'power',name:'Enerji Ağı',cat:'strategy',reviewNew:true,original:true,kind:'puzzle',desc:'Parçaları döndür; bütün alanı enerjiye bağla.',instruction:'Bir parçaya dokunarak saat yönünde çevir. Sol üstteki kaynaktan başlayıp bütün parçaları birbirine bağla. Sınırdan dışarı açılan uç kalmamalı. Enerji alan parçalar yeşile döner. Üst düzeylerde daha büyük ve dallanan ağlar oluşur.'}
 );
 for(const g of [...GAMES,...ARCHIVED_GAMES]){g.cat={speed:'math',logic:'math',flex:'attention',plan:'strategy'}[g.cat]||g.cat;if(g.id==='market')g.cat='strategy';g.featured=!!g.reviewNew}
-for(const key of Object.keys(CATS))delete CATS[key];Object.assign(CATS,{all:{name:'Tümü',color:'#ec784d'},memory:{name:'Hafıza',color:'#8e7ac7'},attention:{name:'Dikkat',color:'#4b9e8c'},math:{name:'İşlem Yeteneği',color:'#c79546'},strategy:{name:'Strateji',color:'#637b49'}});
+for(const key of Object.keys(CATS))delete CATS[key];Object.assign(CATS,{all:{name:'Tümü',color:'#ec784d'},memory:{name:'Hafıza',color:'#7a63bd'},attention:{name:'Dikkat',color:'#3b7d6f'},math:{name:'İşlem Yeteneği',color:'#926a2c'},strategy:{name:'Strateji',color:'#637b49'}});
 function getGame(id){return GAMES.find(g=>g.id===id)||ARCHIVED_GAMES.find(g=>g.id===id)}
 GAMES.sort((a,b)=>Number(!!b.reviewNew)-Number(!!a.reviewNew)||Number(!!b.original)-Number(!!a.original));
 
