@@ -1,0 +1,28 @@
+name: Kontroller
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript sözdizimi
+        run: for f in *.js tools/*.mjs; do node --check "$f"; done
+      - name: Service worker önbellek sürümü güncel mi
+        run: node tools/sw-surum.mjs --check
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Playwright kur
+        run: pip install playwright==1.*
+      - name: Güncelleme akışı ve kayıtların korunması (Chrome)
+        run: python3 tests/sw_guncelleme_test.py "$(which google-chrome)"

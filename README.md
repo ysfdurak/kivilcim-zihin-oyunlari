@@ -39,6 +39,16 @@ Tarayıcıda `http://localhost:8000` adresini aç.
 
 Depo ayarlarında **Pages → Build and deployment** bölümünde **Deploy from a branch** kaynağını, `main` dalını ve `/ (root)` klasörünü seç. Uygulama dosyaları kök dizindedir. PWA dosya yolları hem alan adı kökünde hem de depo alt yolunda çalışır.
 
+### Yayından önce: önbellek sürümü
+
+Herhangi bir uygulama dosyası (oyun, stil, metin, simge) değiştiğinde göndermeden önce şunu çalıştır:
+
+```sh
+node tools/sw-surum.mjs
+```
+
+Betik `sw.js` içindeki önbellek adını dosyaların içeriğinden üretilen bir özetle günceller. Tarayıcı yeni sürümü yalnızca `sw.js` değişince fark eder; bu adım atlanırsa telefona kurulu kullanıcı eski dosyalarla kalır. Kayıtlar `localStorage`'da durduğu için önbellek değişimi onlara dokunmaz. Unutulursa GitHub Actions'taki **Kontroller** işi kırmızı olur. Kökteki yeni bir `.js`/`.css` dosyası `sw.js` içindeki `core` listesine eklenmezse de aynı iş uyarır.
+
 ## Durum
 
 **Sürüm 1.0 · tamamlandı (Kasım 2026).** 7 kategoride 50 oyun, 10 düzey ve yıldız sistemi, deneme turu, telefon ve tarayıcı desteği, çevrimdışı kullanım. Proje bu kapsamla kapatıldı; yeni oyun eklenmesi planlanmıyor.
@@ -81,6 +91,7 @@ HTTPS üzerinden ilk açılışta çevrimdışı dosyalar hazırlanır. Destekle
 - `listen-games.js` Dinleme kategorisini ve ses motorunu içerir.
 - `platform.js` klavye kısayollarını, cihaza göre metinleri ve adres parametrelerini yönetir.
 - `pwa.js`, `sw.js` ve `manifest.webmanifest` ana ekrana ekleme ve çevrimdışı açılışı yönetir.
+- `tools/sw-surum.mjs` önbellek sürümünü üretir; `tests/sw_guncelleme_test.py` güncellemenin kullanıcıya ulaştığını ve kayıtların korunduğunu gerçek Chrome'da sınar.
 
 ## Lisans
 
