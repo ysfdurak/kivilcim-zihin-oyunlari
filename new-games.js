@@ -4,7 +4,7 @@
    sistemini kullanır. content.js'ten sonra yüklenir. */
 
 /* ---------- Kategoriler ---------- */
-(function(){const keep={...CATS};for(const k of Object.keys(CATS))delete CATS[k];Object.assign(CATS,keep,{verbal:{name:'Sözel',color:'#c0625a'},spatial:{name:'Uzamsal',color:'#5b80b6'}})})();
+(function(){const keep={...CATS};for(const k of Object.keys(CATS))delete CATS[k];Object.assign(CATS,keep,{verbal:{name:'Sözel',color:'#ba5249'},spatial:{name:'Uzamsal',color:'#4c73ab'}})})();
 
 /* ---------- Sözcük verisi: her kategori tek anlamlı, günlük sözcükler ---------- */
 const WORD_CATS={

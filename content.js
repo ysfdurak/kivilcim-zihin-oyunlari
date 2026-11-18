@@ -118,7 +118,7 @@ const contentFinishRound=finishRound;
 finishRound=function(ok,explain=''){const a=active;if(a&&a.awaiting&&!a.paused&&!a.recorded)buzz(ok?12:[35,40,35]);return contentFinishRound(ok,explain)};
 function startHapticWatch(a){if(a.game.kind==='round')return;let last=null;const timer=setInterval(()=>{if(active!==a||a.recorded){clearInterval(timer);return}let m;try{m=flowMetrics(a)}catch(e){return}const bad=(m&&m.bad)||0,lives=a.lives;if(last){if(bad>last.bad||(lives!=null&&last.lives!=null&&lives<last.lives))buzz([35,40,35])}last={bad,lives}},200)}
 const contentSettings=showSettings;
-showSettings=function(){contentSettings();const first=$('modalContent').querySelector('p');first?.insertAdjacentHTML('beforebegin',`<label class="setting"><span>Titreşim<br><small style="font-size:11px;color:#5f6e55">Doğru ve yanlışlarda kısa titreşim (destekleyen telefonlarda).</small></span><input type="checkbox" ${user.haptics!==false?'checked':''} onchange="user.haptics=this.checked;save()"></label>`)};
+showSettings=function(){contentSettings();const first=$('modalContent').querySelector('p');first?.insertAdjacentHTML('beforebegin',`<label class="setting"><span>Titreşim<br><small style="font-size:12.5px;color:#5f6e55">Doğru ve yanlışlarda kısa titreşim (destekleyen telefonlarda).</small></span><input type="checkbox" ${user.haptics!==false?'checked':''} onchange="user.haptics=this.checked;save()"></label>`)};
 
 /* ---------- 7. Kart, filtre ve ana sayfa ---------- */
 const contentCard=card;

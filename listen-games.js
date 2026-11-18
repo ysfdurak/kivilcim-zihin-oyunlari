@@ -2,7 +2,7 @@
    Ses Hafızası, Tiz mi Pes mi?, Ritim Ustası, Kaç Ses?
    Sesler Web Audio ile üretilir; dosya indirilmez, çevrimdışı da çalışır. */
 
-(function(){const keep={...CATS};for(const k of Object.keys(CATS))delete CATS[k];Object.assign(CATS,keep,{listen:{name:'Dinleme',color:'#c2588f'}})})();
+(function(){const keep={...CATS};for(const k of Object.keys(CATS))delete CATS[k];Object.assign(CATS,keep,{listen:{name:'Dinleme',color:'#bc4784'}})})();
 
 /* ---------- Ses motoru ---------- */
 let AC=null;
