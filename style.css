@@ -207,3 +207,8 @@ dialog details.customize>summary::before{content:'▸';color:#5e6f42}
 dialog details.customize[open]>summary::before{content:'▾'}
 dialog details.customize>summary span{font-weight:400;font-size:13px;color:#5d6356}
 dialog details.customize[open]{padding-bottom:12px}
+/* Günün karışımı: süre, oyunlar ve ilk hareket tek bakışta okunsun (etiket 10 px'ten 15 px'e) */
+.dailyCard .eyebrow{font-size:12px;letter-spacing:.14em}
+.dailyCard p{font-size:14px;line-height:1.6;max-width:320px;color:#d3ddc6}
+.dailyCard .primary{font-size:15px;font-weight:700;padding:12px 20px;min-height:48px}
+@media(max-width:520px){.dailyCard p{font-size:13.5px;max-width:300px}.dailyCard .primary{font-size:15px}}

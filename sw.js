@@ -1,7 +1,7 @@
 // Resolve assets against the installation scope, including GitHub Pages project paths.
 const scope = new URL(self.registration.scope);
 const cachePrefix = `kivilcim:${scope.pathname}:`;
-const cacheName = `${cachePrefix}86bde923e8d4`;
+const cacheName = `${cachePrefix}9a0f7676a38b`;
 const shell = scope.href;
 const index = new URL('index.html', scope).href;
 const shellUrls = new Set([shell, index]);
