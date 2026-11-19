@@ -38,7 +38,8 @@ def senaryo(surum_guncellenir: bool):
     try:
         with sync_playwright() as p:
             tarayici = p.chromium.launch(executable_path=CHROME, args=['--no-sandbox'])
-            sayfa = tarayici.new_context().new_page()
+            # Playwright'ın wait_for_function'ı dizeyi eval ile çalıştırır; sayfanın CSP'si (unsafe-eval yok) bunu engeller.
+            sayfa = tarayici.new_context(bypass_csp=True).new_page()
             sayfa.goto(url)
             sayfa.wait_for_function('navigator.serviceWorker.controller!==null', timeout=20000)
             sayfa.wait_for_function('typeof offlineReady!=="undefined" && offlineReady===true', timeout=20000)
