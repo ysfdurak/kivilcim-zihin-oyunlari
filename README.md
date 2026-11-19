@@ -25,6 +25,9 @@ Tek bir oyun seçebilir, üç oyunluk günlük seansı oynayabilir veya favorile
 
 Her oyunda 10 düzey vardır. Kısa turda %85 ve üzeri başarı bir sonraki düzeyi açar, %55’in altı bir düzey geri götürür. Akış modunda düzey, art arda iki iyi seriyle (en az %90 isabet) kendiliğinden yükselir. Her düzey için ★ %60, ★★ %85, ★★★ %95 başarıyla kazanılır. Her oyun kaydedilmeyen kısa bir **deneme turuyla** denenebilir.
 
+## Okunabilirlik notu (Kasım 2026)
+Açılıştaki "Günün karışımı" kartında etiket 12 px, oyun listesi ve süre 14 px, ana düğme 15 px ve 48 px yükseklikte (`style.css` sonundaki blok). Dosya değişince `node tools/sw-surum.mjs` çalıştır.
+
 ## Yerelde çalıştırma
 
 Depo klasöründe aşağıdaki komutu çalıştır. Node.js, paket kurulumu veya derleme adımı gerekmez.
