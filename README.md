@@ -18,6 +18,9 @@ Tek bir oyun seçebilir, üç oyunluk günlük seansı oynayabilir veya favorile
 
 İşlem alanına Tahmin Ustası ve Kasa Başı eklendi. Süre baskısı olmayan oyunlar **☾ Sakin** filtresinde toplanır.
 
+
+**Projeyi anlatırken:** Mülakatta sorulabilecek 10 soru, kısa cevaplar ve verilen kararlar (sorun → karar → bedel): [docs/MULAKAT.md](docs/MULAKAT.md).
+
 ## Düzeyler ve yıldızlar
 
 Üst düzeylerde kolay kalan oyunların zorluğu artırıldı: İşaret Avı’nda tek özellik farkı ve gizlenen örnek, Kural Değişti’de “VE / YA DA” ile birleşik kurallar, Eksik İşlem’de dört sayılı ifadeler, Ne Değişti?’de 6×6 alan ve 4 değişiklik, Seramik Vardiyası’nda 16 saniyeye inen sipariş süresi, Renk Çatışması’nda “kelimeye bak” görev değişimi.
