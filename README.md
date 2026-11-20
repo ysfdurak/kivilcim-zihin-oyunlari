@@ -97,6 +97,7 @@ HTTPS üzerinden ilk açılışta çevrimdışı dosyalar hazırlanır. Destekle
 - `listen-games.js` Dinleme kategorisini ve ses motorunu içerir.
 - `platform.js` klavye kısayollarını, cihaza göre metinleri ve adres parametrelerini yönetir.
 - `pwa.js`, `sw.js` ve `manifest.webmanifest` ana ekrana ekleme ve çevrimdışı açılışı yönetir.
+- `olcum.js` yalnız resmî adreste (ysfdurak.github.io/kivilcim-zihin-oyunlari) hangi ekranların açıldığını anonim sayar ve geri bildirim düğmesini gösterir (ortak servis: olcum.ysfdurak.com). Skor, oyun içeriği ve ad gönderilmez, çerez yoktur; tarayıcıda Do Not Track / GPC açıksa hiçbir şey gönderilmez. Başka bir adreste açılan kopya dışarıya istek atmaz.
 - `tools/sw-surum.mjs` önbellek sürümünü üretir; `tests/sw_guncelleme_test.py` güncellemenin kullanıcıya ulaştığını ve kayıtların korunduğunu gerçek Chrome'da sınar.
 
 ## Lisans
